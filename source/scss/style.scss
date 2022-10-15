@@ -1,0 +1,509 @@
+// обнуление
+@import "nullcss.scss";
+// Шрифты
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans&display=swap");/* шрифт Бебас и PT sans*/
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");/* Oswald*/
+// МИКСИНЫ
+  // flex
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0;
+}
+  // кнопка заказа 
+@mixin buttonOrder() {
+  .button__order {
+    font-family: $Bebas;
+    width: 155px;
+    height: 50px;
+    font-size: 15px;
+    text-align: center;
+    .button__order-item {
+      display: block;
+      padding: 18px 34px 17px 33px;
+    }
+  }
+}
+  // кнопка меню
+@mixin buttonMenus() {
+  .button__menus {
+    font-family: $Bebas;
+    width: 105px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 1.5px;
+    .button__menus-item {
+      display: block;
+      padding: 18px 0 17px 14px;
+    }
+  }
+}
+  // контейнер с кортинкой и чёрным фоном на всю ширину
+@mixin containerWithImage() {
+  width: 100%;
+  // max-height: 425px;
+  background-color: #000;
+  @include flexbox();
+}
+  // див с картинкой в AD BLOCK
+@mixin prideItems() {
+  .pride__items {
+    width: 310px;
+    .pride__items-title {
+      font-family: Oswald;
+      font-size: 25px;
+      line-height: 25px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #000;
+      display: block;
+      padding: 4px 0 35px 0;
+      word-wrap: nowrap;
+    }
+    .pride__item-text {
+      font-family: $fontfamily;
+      font-size: 15px;
+      color: #2a2a2a;
+    }
+  }
+}
+  // дивы со стилями для элементов в CONTACT INFORMATION
+@mixin contact__items() {
+  .contact__adress__phone__email__messagers {
+    font-size: 15px;
+    color: #373737;
+    font-weight: 600;
+    width: 50%;
+    // .contact__adress__phone__email__messagers-items{
+    //   padding: 0 0 25px 0;
+    //   display: flex;
+    //   &::before{
+    //     content: url(/img/email.png);
+    //   }
+    // }
+  }
+}
+@mixin contact__items-text() {
+  display: block;
+  padding: 0 0 0 10px;
+}
+// ПЕРЕМЕННЫЕ
+// по умолчанию
+$fontfamily: "PT Sans";
+$mainwidth: 870px;
+// Bebas
+$Bebas: "Bebas Neue";
+// =======================================================================
+
+body {
+  font-family: $fontfamily;
+  color: #5c5c5c;
+  font-size: 15px;
+  font-weight: 500;
+  & a{
+    cursor: pointer;
+  }
+}
+
+.wraper {
+  max-width: 1366px;
+  margin: 0 auto;
+
+  // MAIN CONTAINER
+  .container {
+    margin: 0 auto;
+    max-width: $mainwidth;
+  }
+  // HEADER
+  header {
+    padding: 29px 0px 33px 0px;
+    background-color: #fff;
+    // border: 1px solid red; ====== граница для проверки
+    position: relative;
+    .header-top {
+      @include flexbox();
+      justify-content: space-between;
+      // border: 1px solid green; ========граница для проверки
+      padding-bottom: 10px;
+    }
+    .header-top-lang {
+      @include flexbox();
+      align-items: center;
+    }
+    .header-top-lang__item {
+      display: block;
+      width: 19px;
+      height: 19px;
+      line-height: 19px;
+      color: #000;
+      font-size: 14px;
+      font-family: $Bebas;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0px 4px;
+      margin: 0px 12px 0px 0px;
+      &.active {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+    .header-top__link {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #000;
+      font-family: Oswald;
+      text-decoration: underline;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .header-bottom {
+      // border: 1px solid #000;===========граница для проверки
+      margin: -18px 0px 0px 0px;
+      @include flexbox();
+      align-items: center;
+    }
+    .header-bottom__column {
+      flex: 0 0 33.33%;
+    }
+    .header-bottom-menu {
+      .header-bottom-menu__list {
+        @include flexbox();
+        justify-content: space-between;
+        // li {
+        //   outline: 1px solid #000;========граница для проверки
+        // }
+      }
+    }
+
+    .header-bottom-menu__link {
+      font-family: Oswald;
+      font-size: 15px;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .header-logo {
+      display: block;
+      text-align: center;
+    }
+    .header-logo__text {
+      display: block;
+      color: #000000;
+      font-family: $Bebas;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      &#header-logo__text-top {
+        padding-top: 5px;
+      }
+      &#header-logo__text-bot {
+        text-align: center;
+      }
+    }
+    .header-image {
+      display: inline-block;
+    }
+  }
+  // PREVIEW
+  .preview {
+    @include containerWithImage();
+    @include flexbox();
+    max-height: 425px;
+
+    // PREVIEW IMAGE
+    .preview_image {
+      max-width: 50%;
+      cursor: pointer;
+    }
+    // PREVIEW INFORMATION
+    .preview_information {
+      margin: 80px auto 75px 60px;
+      .preview_text {
+        width: 300px;
+        color: #fff;
+        text-align: left;
+        .preview__text-title {
+          font-family: Oswald;
+          font-size: 50px;
+          line-height: 50px;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+          padding-bottom: 37px;
+        }
+        .preview__maintext {
+          font-family: $fontfamily;
+          font-size: 15px;
+          line-height: 25px;
+          padding-bottom: 55px;
+        }
+        // PREVIEW INFORMATION BUTTONS
+        .preview__buttons {
+          @include flexbox();
+          font-family: $Bebas;
+          @include buttonOrder();
+          & .button__order {
+            background: #fff;
+            & .button__order-item {
+              color: #000;
+            }
+          }
+          @include buttonMenus();
+          & .button__menus-item {
+            color: #fff;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  // AD BLOCK
+  .ad__block {
+    @include flexbox();
+    padding: 75px 0 80px 0;
+    text-align: left;
+    &:last-child {
+      .ad_block-items_title {
+        padding: 25px 0 33px 0;
+      }
+    }
+    .ad_block-items_title {
+      display: block;
+      font-size: 25px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-family: Oswald;
+      word-wrap: break-word;
+      padding: 25px 0 36px 0;
+    }
+    .ad_block-items_mainText {
+      display: block;
+      font-family: $fontfamily;
+      max-width: 185px;
+      font-size: 15px;
+      line-height: 25px;
+      padding: 0 0 32px 0;
+    }
+    @include buttonOrder();
+    & .button__order {
+      background: #000;
+      & .button__order-item {
+        color: #fff;
+      }
+    }
+    @include buttonMenus();
+    & .button__menus-item {
+      color: #000;
+      text-decoration: underline;
+    }
+  }
+  // BRAG BLOCK
+  .brag_block {
+    background: #ebebeb;
+    .whyWe {
+      @include containerWithImage();
+      .whyWe__title {
+        display: block;
+        text-align: right;
+        height: 150px;
+        width: 50%;
+        font-family: Oswald;
+        font-size: 50px;
+        line-height: 25px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: #fff;
+        padding: 57px 61px 57px 0;
+      }
+    }
+    .container {
+      padding: 50px 0;
+      .pride__top {
+        @include flexbox();
+        .pride__items-top_first,
+        .pride__items-top_second {
+          @include flexbox();
+          width: 50%;
+        }
+        .pride__items-top_first {
+          .pride__image {
+            width: 100px;
+            height: 100px;
+            background: url(/img/Fresh_Image.png) no-repeat;
+            margin-right: 10px;
+          }
+        }
+        .pride__items-top_second {
+          .pride__image {
+            width: 100px;
+            height: 100px;
+            background: url(/img/time_image.png) no-repeat;
+            margin-right: 10px;
+          }
+        }
+        @include prideItems();
+        padding: 0 0 50px 0;
+      }
+      .pride__bot {
+        @include flexbox();
+        .pride__items-bot_first,
+        .pride__items-bot_second {
+          @include flexbox();
+          min-width: 50%;
+        }
+        .pride__items-bot_first {
+          .pride__image {
+            width: 100px;
+            height: 100px;
+            background: url(/img/Helthy_image.png) no-repeat;
+            margin-right: 10px;
+          }
+        }
+        .pride__items-bot_second {
+          .pride__image {
+            width: 100px;
+            height: 100px;
+            background: url(/img/fits_image.png) no-repeat;
+            margin-right: 10px;
+          }
+        }
+        @include prideItems();
+      }
+    }
+  }
+  // CONTACT INFORMATION
+  .contact__information {
+    padding: 80px 0 25px 0;
+    .container {
+      .say__hello {
+        display: block;
+        font-size: 50px;
+        line-height: 25px;
+        color: #000;
+        font-family: Oswald;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        padding-bottom: 35px;
+      }
+      .contact__information-text {
+        @include flexbox();
+        @include contact__items();
+        .contact__adress {
+          padding: 0 0 25px 0;
+          display: flex;
+          &::before {
+            content: url(/img/geoposition.png);
+          }
+          .contact__adress-text {
+            @include contact__items-text();
+          }
+        }
+        .contact__phone {
+          padding: 0 0 25px 0;
+          display: flex;
+          &::before {
+            content: url(/img/telephone.png);
+          }
+          .contact__phone-text {
+            @include contact__items-text();
+            padding: 7px 0 0 10px;
+          }
+        }
+        .contact__email {
+          padding: 0 0 30px 0;
+          display: flex;
+          &::before {
+            content: url(/img/email.png);
+          }
+          .contact__email-text {
+            @include contact__items-text();
+            padding: 0 0 0 10px;
+          }
+        }
+        .contact__messagers {
+          @include flexbox();
+          .contact__messagers-items {
+            padding: 0 31px 0 0;
+            &:last-child {
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  // MAP & FORM
+  .map__and__form {
+    @include containerWithImage();
+    margin: 0 0 30px 0;
+    max-height: 475px;
+    .form {
+      padding: 55px 0 50px 60px;
+      & h2,
+      input {
+        display: block;
+      }
+      & .form__title {
+        font-size: 25px;
+        line-height: 25px;
+        letter-spacing: 2.5px;
+        color: #fff;
+        font-family: Oswald;
+        text-transform: uppercase;
+        padding: 0 0 30px 0;
+      }
+      & .input__block {
+        & input,
+        textarea {
+          width: 370px;
+          height: 50px;
+          border: 2px solid #959595;
+          margin: 0 0 25px 0;
+          background: #252525;
+          padding: 0 0 0 18px;
+          color: #fff;
+        }
+        & textarea {
+          height: 100px;
+          padding: 13px 0 0 18px;
+        }
+        & .form__button {
+          display: block;
+          width: 155px;
+          height: 50px;
+          background: #fff;
+          border: none;
+          padding: 18px auto;
+          & span {
+            background: none;
+            border: none;
+            font-size: 15px;
+            line-height: 25px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #000;
+            font-family: $Bebas;
+          }
+        }
+      }
+    }
+  }
+  // FOOTER
+  footer {
+    .container {
+      @include flexbox();
+      padding: 35px 0 27px 0;
+      align-items: center;
+      justify-content: space-between;
+
+      .corporation {
+        font-size: 15px;
+        width: 50%;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+$fontfamily: "PT Sans";
+$mainwidth: 870px;
+// Bebas
+$fontBebas: "Bebas Neue";
+
+@mixin flexbox()      
+@mixin buttonOrderWhite()
+@mixin buttonMenusWhite()
+@mixin buttonOrderBlack()
+@mixin buttonMenusBlack()
+@mixin containerWithImage()
+@mixin prideItems()
+@mixin contact__items()
+@mixin contact__items-text()
